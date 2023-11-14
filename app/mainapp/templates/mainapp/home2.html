@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ title }}</title>
+	<link href="/static/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+
+
+
+<nav class="navbar fixed-up navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+      <a href="#" class="navbar-brand">Северная Верфь</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+      aria-controls="navbarContent" aria-expanded="false">
+      	<span class="navbar-toggler-icon"></span>
+      </button>
+
+  <div class="collapse navbar-collapse" id="navbarContent">
+  	<ul class="navbar-nav mr-auto mb-2">
+  		<li class="nav-item">
+  			<a href="{% url 'home' %}" class="nav-link">Home</a>
+  		</li>
+  		<li class="nav-item">
+  			<a href="{% url 'user_data' %}" class="nav-link">Данные AD</a>
+  		</li>
+  		<li class="nav-item">
+  			<a href="{% url 'user_mail' %}" class="nav-link">Почта</a>
+  		</li>
+  		<li class="nav-item">
+  			<a href="{% url 'logout' %}" class="nav-link">Logout</a>
+		</li>
+		<li class="nav-item">
+  			<a href="{% url 'django_auth_adfs:login' %}" class="nav-link" style="margin-left: 150px">Login</a>
+  		</li>
+		<li class="nav-item">
+  			<a href="{% url 'django_auth_adfs:login-no-sso' %}" class="nav-link">Login (no SSO)</a>
+  		</li>
+		<li class="nav-item">
+  			<a href="{% url 'django_auth_adfs:logout' %}" class="nav-link">Logout</a>
+  		</li>
+  	</ul>
+  </div>
+  	<form action="" class="d-flex">
+  		<input type="search" placeholder="Search" class="form-control mr-2">
+  		<button class="btn btn-outline-success">Search</button>
+  	</form>
+
+
+  </div>
+</nav>
+{% block content %}
+<h1 style="margin-left:300px">Привет, {{ user.username }}</h1>
+    {% endblock %}
+<script src="/static/js/bootstrap.bundle.js"></script>
+</body>
+</html>
+

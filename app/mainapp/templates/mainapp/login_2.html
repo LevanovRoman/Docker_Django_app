@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<div>
+<h2>checking:</h2>
+{% if user.is_authenticated %}
+    <p>user ===== is_authenticated</p>
+					<li><span>{{ user.username }}</span></li>
+					<li><a href="#">Выйти</a></li>
+				{% else %}
+    <p>user NOT is_authenticated</p>
+					<li><a href="#">Вход</a></li>
+					<li><a href="#">Регистрация</a></li>
+				{% endif %}
+				{% if user.is_superuser or user.is_staff %}
+     <p>user ===== SUPER</p>
+					<li><a href="#">Админ</a></li>
+				{% endif %}
+</div>
+<form method="post">
+    {% csrf_token %}
+    {% if error %}
+      <p style="color:red">
+        {{error}}
+      </p>
+      {% endif %}
+    <p>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+    </p>
+    <p>
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" required>
+    </p>
+    <button type="submit">Login</button>
+</form>
+</body>
+</html>

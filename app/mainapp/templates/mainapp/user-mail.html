@@ -1,0 +1,18 @@
+{% extends 'mainapp/home.html' %}
+
+{% block content %}
+    {% if mail_list %}
+        {% for mail in mail_list %}
+        <p>Message number: {{mail.number}}</p>
+        <p>From: {{mail.from}}</p>
+        <p>Date: {{mail.date}}</p>
+        <p>Subject: {{mail.subject}}</p>
+<hr>
+<br>
+
+         {% endfor %}
+    {% else %}
+        <p>Нет непросмотренных сообщений</p>
+    {% endif %}
+
+    {% endblock %}

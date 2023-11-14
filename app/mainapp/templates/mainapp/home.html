@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SV-Bootstrap</title>
+	<!-- <link href="css/bootstrap.css" rel="stylesheet"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <style>
+    section{
+      padding: 60px 0;
+    }
+  </style>
+</head>
+<body>
+
+
+
+<nav class="navbar navbar-expand-md navbar-light">
+  <div class="container-xxl">
+    <a href="#intro" class="navbar-brand">
+      <span class="fw-bold text-secondary display-6">
+        Северная Верфь
+      </span>
+    </a>
+    <!-- toggle button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+    data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false"
+    aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- navbar links -->
+    <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="{% url 'home' %}" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'user_data' %}" class="nav-link">Данные AD</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'django_auth_adfs:login' %}" class="nav-link">Login</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'django_auth_adfs:login-no-sso' %}" class="nav-link">Login (no SSO)</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'django_auth_adfs:logout' %}" class="btn btn-secondary">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+{% block content %}
+<h1 style="margin-left:300px">Привет, {{ user.username }}</h1>
+{% endblock %}
+<!-- <script src="/js/bootstrap.bundle.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
